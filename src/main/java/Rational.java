@@ -45,15 +45,19 @@ class Rational {
      * @param x the rational number to be subtracted from the current rational number
      */
     public void subtract(Rational x) {
-        // to be completed
+        numerator = (numerator * x.denominator) - (x.numerator * denominator);
+        denominator = (denominator * x.denominator);
+        simplestForm();
     }
 
     /***
      * Compute a multiplication of the current rational number to another given rational number
      * @param x the rational number to be multiplied to the current rational number
      */
-    public void multiply(Rational x) { 
-        // to be completed
+    public void multiply(Rational x) {
+        numerator = (numerator * x.numerator);
+        denominator = (denominator * x.denominator);
+        simplestForm();
     }
 
     /***
@@ -61,7 +65,9 @@ class Rational {
      * @param x the rational number to be divided by the current rational number
      */
     public void divide(Rational x) {
-        // to be completed
+        numerator = (numerator * x.denominator);
+        denominator = (denominator * x.numerator);
+        simplestForm();
     }
 
     /***
