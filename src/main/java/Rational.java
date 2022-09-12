@@ -58,6 +58,7 @@ class Rational {
         numerator = (numerator * x.numerator);
         denominator = (denominator * x.denominator);
         simplestForm();
+        ;
     }
 
     /***
