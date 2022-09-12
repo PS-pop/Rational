@@ -9,12 +9,14 @@ class Rational {
     } 
 
     Rational() {
-        // to be completed
+        this.numerator = numerator;
+        this.denominator = denominator;
     }
 
-    Rational(long numerator, long denominator) throws Illegal { 
-        // to be completed
-    } 
+    Rational(long numerator, long denominator) throws Illegal {
+        this.numerator = numerator;
+        this.denominator = denominator;
+    }
 
     // find the reduce form 
     private void simplestForm() { 
@@ -58,7 +60,6 @@ class Rational {
         numerator = (numerator * x.numerator);
         denominator = (denominator * x.denominator);
         simplestForm();
-        ;
     }
 
     /***
@@ -77,8 +78,13 @@ class Rational {
      * @return true if the given rational number equals to the current, false otherwise
      */
     public boolean equals(Object x) {
-        // to be completed
-        return true; // TODO: This needs to be modified.
+        this.simplestForm();
+        Rational y = Rational.class.cast(x);
+        y.simplestForm();
+        if (this.toString() == y.toString()){
+            return true;
+        }
+        return false;
     }
 
     /***
@@ -88,8 +94,12 @@ class Rational {
      * rational number is larger than the given number
      */
     public long compareTo(Object x) {
-        // to be completed
-        return -1; // TODO: this needs to be modified.
+        Rational y = Rational.class.cast(x);
+        long left = numerator*y.denominator;
+        long right = y.numerator*denominator;
+        if (left < right) return -1;
+        else if (left == right) return 0;
+        return 1;
     }
 
     /***
@@ -98,7 +108,7 @@ class Rational {
      */
     public String toString() { 
         // to be completed
-        return ""; // TODO: This needs to be modified.
+        return numerator+"/"+denominator;
     }
 
     public static void main(String[] args) {

@@ -46,4 +46,35 @@ public class RationalTest {
         x.divide(y);
         Assert.assertEquals(2,x.numerator);
     }
+
+    @Test
+    public void testEquals() {
+        Rational x = new Rational();
+        x.numerator = 1;
+        x.denominator = 2;
+        Rational y = new Rational();
+        y.numerator = 1;
+        y.denominator = 4;
+        boolean result = x.equals(y);
+        Assert.assertEquals(false,result);
+    }
+    @Test
+    public void testCompareTo() {
+        Rational x = new Rational();
+        x.numerator = 1;
+        x.denominator = 2;
+        Rational y = new Rational();
+        y.numerator = 1;
+        y.denominator = 4;
+        long result = x.compareTo(y);
+        Assert.assertEquals(1,result);
+    }
+    @Test
+    public void testToString() {
+        Rational x = new Rational();
+        x.numerator = 1;
+        x.denominator = 2;
+        String s = x.toString();
+        Assert.assertEquals("1/2",s);
+    }
 }
